@@ -1,0 +1,252 @@
+/* =============== VARIABLES GLOBALES =============== */
+:root {
+    /* Colores */
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --dark: #2d3436;
+    --light: #f8f9fa;
+    --white: #ffffff;
+    
+    /* Gradientes */
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 15px rgba(108, 92, 231, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+    
+    /* Transiciones */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    
+    /* Bordes */
+    --radius-sm: 3px;
+    --radius-md: 10px;
+    --radius-lg: 20px;
+    --radius-full: 50px;
+  }
+  
+  /* =============== RESET Y BASE =============== */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* =============== COMPONENTES REUTILIZABLES =============== */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .btn--gradient {
+    background: var(--gradient);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn--gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+  }
+  
+  /* =============== LAYOUT - NAVBAR =============== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    transition: var(--transition-normal);
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-links {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-normal);
+  }
+  
+  .nav-indicator {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--gradient);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-slow);
+    z-index: 1;
+  }
+  
+  .nav-link.active {
+    color: var(--primary);
+  }
+  
+  /* =============== LAYOUT - HERO =============== */
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    min-height: 100vh;
+    padding: 5rem 5% 0;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0.5rem 0;
+    line-height: 1.1;
+  }
+  
+  .typing-effect {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: var(--dark);
+    height: 2.2rem;
+    overflow: hidden;
+  }
+  
+  .hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-image img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* =============== ANIMACIONES =============== */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* =============== MEDIA QUERIES =============== */
+  @media (max-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+      padding-top: 7rem;
+    }
+    
+    .hero-content {
+      margin: 0 auto;
+    }
+    
+    .hero-image {
+      order: -1;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 80px;
+      left: -100%;
+      width: 80%;
+      height: calc(100vh - 80px);
+      background: var(--white);
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      transition: var(--transition-normal);
+    }
+  
+    .nav-links.active {
+      left: 0;
+    }
+    
+    .nav-indicator {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero {
+      padding-top: 6rem;
+    }
+    
+    .btn {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
