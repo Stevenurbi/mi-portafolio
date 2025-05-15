@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stevens | Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Nexus</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Sobre mí</a>
+                <a href="projects.html" class="nav-link">Proyectos</a>
+                <a href="contact.html" class="nav-link contact-btn active">Contacto</a>
+            </div>
+            <button class="menu-toggle" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero" id="contact">
+        <div class="hero-content">
+            <h1>Contacto</h1>
+            <p>¿Tienes algún proyecto en mente? ¡Me encantaría escucharlo!</p>
+            <form action="#" method="post" class="contact-form">
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu correo" required>
+                <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+                <button type="submit" class="btn btn--gradient">Enviar mensaje</button>
+            </form>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/33999/pexels-photo.jpg" 
+                 alt="Contacto" 
+                 loading="lazy">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" class="social-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com" class="social-link" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Stevens. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
